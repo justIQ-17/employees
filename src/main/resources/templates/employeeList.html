@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EmployeeList</title>
+    <link rel="stylesheet" type="text/css" media="all" href="employeeList.css" th:href="@{templates/employeeList.css}"/>
+
+</head>
+<body>
+<div id="navbar">
+    <span><a id="employeeList" th:href="@{/employees}">Employee List</a></span>
+    <span><a id="addEmployee" th:href="@{employees/addEmployee}">Add Employee</a></span>
+</div>
+<h1 id="header">My first independent website</h1>
+<div id="tableDiv">
+    <h1 style="border-bottom: 2px inset; font-size: 40px; font-family: Calibri">Employee List</h1>
+    <table id="table">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th style="width: 40%">Actions</th>
+        </tr>
+        <tr th:each="employee : ${employees}">
+            <td><span th:text="${employee.fName}">Firstname</span></td>
+            <td><span th:text="${employee.lName}">Lastname</span></td>
+            <td><span th:text="${employee.email}">e-mail</span></td>
+            <td><span th:text="${employee.department.name}">department</span></td>
+            <td>
+                <a th:href="@{'/employees/delete/' + ${employee.id}}">
+                    <button style="background-color: red">DELETE</button>
+                </a>
+
+                <a th:href="@{'/employees/update/' + ${employee.id}}">
+                    <button update-open-modal style="background-color:aqua">UPDATE</button>
+                </a>
+
+                <a th:href="@{'/employees/' + ${employee.id}}">
+                    <button data-open-modal style="background-color: aqua">DETAILS</button>
+                </a>
+                <!--                <dialog data-modal>-->
+                <!--                        <div class="modalInsideText">First Name:-->
+                <!--                            <span th:text="${employee.fName}">Firstname</span>-->
+                <!--                        </div>-->
+                <!--                        <div class="modalInsideText">Last Name:-->
+                <!--                            <span th:text="${employee.lName}">Lastname</span>-->
+                <!--                        </div>-->
+                <!--                        <div class="modalInsideText">Email address:-->
+                <!--                            <span th:text="${employee.email}">Email</span>-->
+                <!--                        </div>-->
+                <!--                        <div class="modalInsideText">Date of Birth:-->
+                <!--                            <span th:text="${employee.dob}">Date of Birth</span>-->
+                <!--                        </div>-->
+                <!--                        <div class="modalInsideText">Job Title:-->
+                <!--                            <span th:text="${employee.jobTitle}">Job Title</span>-->
+                <!--                        </div>-->
+                <!--                        <div class="modalInsideText">Phone number:-->
+                <!--                            <span th:text="${employee.phoneNumber}">Phone Number</span>-->
+                <!--                        </div>-->
+                <!--                        <button style="background-color: red; font-size: 20px" data-close-modal>Close</button>-->
+                <!--                    </dialog>-->
+                <!--                    <script>-->
+                <!--                        const openButton = document.querySelector("[data-open-modal]")-->
+                <!--                        const closeButton = document.querySelector("[data-close-modal]")-->
+                <!--                        const modal = document.querySelector("[data-modal]")-->
+
+                <!--                        openButton.addEventListener("click", () => {-->
+                <!--                            modal.showModal()-->
+                <!--                        })-->
+
+                <!--                        closeButton.addEventListener("click", () => {-->
+                <!--                            modal.close()-->
+                <!--                        })-->
+                <!--                    </script>-->
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

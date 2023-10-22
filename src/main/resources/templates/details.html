@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmalns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link rel="stylesheet" href="details.css" th:href="@{/templates/details.css}"/>
+</head>
+<body>
+<div id="detailsBox">
+    <div class="detailsText">First Name:
+        <span th:text="${employee.fName}">Firstname</span>
+    </div>
+    <div class="detailsText">Last Name:
+        <span th:text="${employee.lName}">Lastname</span>
+    </div>
+    <div class="detailsText">Email address:
+        <span th:text="${employee.email}">Email</span>
+    </div>
+    <div class="detailsText">Date of Birth:
+        <span th:text="${employee.dob}">Date of Birth</span>
+    </div>
+    <div class="detailsText">Job Title:
+        <span th:text="${employee.jobTitle}">Job Title</span>
+    </div>
+    <div class="detailsText">Phone number:
+        <span th:text="${employee.phoneNumber}">Phone Number</span>
+    </div>
+    <div class="detailsText">Department:
+        <span th:text="${employee.department.name}">Department</span>
+    </div>
+</div>
+
+</body>
+</html>

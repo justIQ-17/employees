@@ -1,0 +1,24 @@
+body{
+    background-color: black;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+#detailsBox{
+    margin: auto;
+    height: 90%;
+    width: 35%;
+    border: 1px solid orangered;
+    font-size: 35px;
+    text-align: center;
+    padding-bottom: 7%;
+    padding-top: 7%;
+    background-color: greenyellow;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: Calibri;
+
+}
+.detailsText{
+    margin-bottom: 2%;
+}

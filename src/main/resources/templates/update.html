@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" href="addEmployee.css" th:href="@{/templates/addEmployee.css}"/>
+</head>
+<body>
+<form method="POST" th:action="@{/employees/update}" th:object="${employee}" id="updateForm">
+
+    <div id="enterBox">
+        <h1 >Enter updated employee details:</h1>
+        <input type="number" th:field="*{id}" hidden/>
+        <label for="fName">First Name</label>
+        <input type="text" id="fName" th:field="*{fName}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('fName')}"
+              th:errors="*{fName}">fName Error</span>
+        <br>
+        <label for="lName">Last Name</label>
+        <input type="text" id="lName" th:field="*{lName}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('lName')}"
+              th:errors="*{lName}">lName Error</span>
+        <br>
+        <label for="email">Email</label>
+        <input type="text" id="email" th:field="*{email}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}">email Error</span>
+        <br>
+        <label for="dob">Date of birth</label>
+        <input type="date" id="dob" th:field="*{dob}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('dob')}"
+              th:errors="*{dob}">email Error</span>
+        <br>
+        <label for="jobTitle">Job Title</label>
+        <input type="text" id="jobTitle" th:field="*{jobTitle}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('jobTitle')}"
+              th:errors="*{jobTitle}">email Error</span>
+        <br>
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" th:field="*{phoneNumber}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('phoneNumber')}"
+              th:errors="*{phoneNumber}">email Error</span>
+        <br>
+        <label for="department">Department</label>
+        <select form="updateForm" id="department" th:field="*{department}">
+            <option th:each="department : ${departments}"
+                    th:text="${department.name}"
+                    th:value="${department.id}">department</option>
+        </select>
+        <br>
+        <input id="submit" type="submit" value="Submit"/>
+    </div>
+</form>
+
+</body>
+</html>
