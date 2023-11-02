@@ -14,20 +14,34 @@
 </div>
 <h1 id="header">My first independent website</h1>
 <div id="tableDiv">
-    <h1 style="border-bottom: 2px inset; font-size: 40px; font-family: Calibri">Employee List</h1>
+    <span style="border-bottom: 2px inset; font-size: 40px; font-weight: bold; font-family: Calibri,serif">Employee List</span>
+    <select name="links" size="1" th:onclick="window.location.href = this.value">
+        <option th:value="@{/employees}" >All Departments</option>
+        <option th:each="department : ${departments}"
+                th:text= "${department.name}"
+                th:value="@{'/employees/' + ${department.name}}">department</option>
+    </select>
+    <select>
+        <option>All Positions</option>
+        <option th:each="position : ${positions}"
+                th:text="${position.name}"
+                th:value="${position.id}">position</option>
+    </select>
     <table id="table">
         <tr>
             <th>First name</th>
             <th>Last name</th>
             <th>Email</th>
             <th>Department</th>
-            <th style="width: 40%">Actions</th>
+            <th>Position</th>
+            <th style="width: 35%">Actions</th>
         </tr>
         <tr th:each="employee : ${employees}">
             <td><span th:text="${employee.fName}">Firstname</span></td>
             <td><span th:text="${employee.lName}">Lastname</span></td>
             <td><span th:text="${employee.email}">e-mail</span></td>
             <td><span th:text="${employee.department.name}">department</span></td>
+            <td><span th:text="${employee.position.name}">position</span></td>
             <td>
                 <a th:href="@{'/employees/delete/' + ${employee.id}}">
                     <button style="background-color: red">DELETE</button>

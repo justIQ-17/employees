@@ -21,14 +21,15 @@
     <div class="detailsText">Date of Birth:
         <span th:text="${employee.dob}">Date of Birth</span>
     </div>
-    <div class="detailsText">Job Title:
-        <span th:text="${employee.jobTitle}">Job Title</span>
-    </div>
+
     <div class="detailsText">Phone number:
         <span th:text="${employee.phoneNumber}">Phone Number</span>
     </div>
     <div class="detailsText">Department:
         <span th:text="${employee.department.name}">Department</span>
+    </div>
+    <div class="detailsText">Position:
+        <span th:text="${employee.position.name}">Department</span>
     </div>
 </div>
 

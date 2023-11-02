@@ -40,20 +40,20 @@ public class Employee {
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = false)
     private LocalDate dob;
-    @NotBlank(message = "Cannot be left blank")
-    private String jobTitle;
     @Pattern(regexp = "^([\\+])9989[012345789][0-9]{7}$", message = "Must be formatted: +998901234567")
     private String phoneNumber;
 
     @ManyToOne
     private Department department;
 
+    @ManyToOne
+    private Position position;
+
     public Employee(String fName, String lName, String email, LocalDate dob, String jobTitle, String phoneNumber) {
         this.fName = fName;
         this.lName = lName;
         this.email = email;
         this.dob = dob;
-        this.jobTitle = jobTitle;
         this.phoneNumber = phoneNumber;
     }
 

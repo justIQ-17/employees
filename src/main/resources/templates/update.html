@@ -35,12 +35,6 @@
               th:if="${#fields.hasErrors('dob')}"
               th:errors="*{dob}">email Error</span>
         <br>
-        <label for="jobTitle">Job Title</label>
-        <input type="text" id="jobTitle" th:field="*{jobTitle}"/>
-        <span class="validationError"
-              th:if="${#fields.hasErrors('jobTitle')}"
-              th:errors="*{jobTitle}">email Error</span>
-        <br>
         <label for="phoneNumber">Phone Number</label>
         <input type="text" id="phoneNumber" th:field="*{phoneNumber}"/>
         <span class="validationError"
@@ -52,6 +46,13 @@
             <option th:each="department : ${departments}"
                     th:text="${department.name}"
                     th:value="${department.id}">department</option>
+        </select>
+        <br>
+        <label for="position">Position</label>
+        <select form="updateForm" id="position" th:field="*{position}">
+            <option th:each="position : ${positions}"
+                    th:text="${position.name}"
+                    th:value="${position.id}">position</option>
         </select>
         <br>
         <input id="submit" type="submit" value="Submit"/>

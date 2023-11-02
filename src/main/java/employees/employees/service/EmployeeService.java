@@ -3,9 +3,11 @@ package employees.employees.service;
 
 import employees.employees.entity.Department;
 import employees.employees.entity.Employee;
+import employees.employees.entity.Position;
 import employees.employees.repository.DepartmentRepository;
 import employees.employees.repository.EmployeeRepository;
 
+import employees.employees.repository.PositionRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,14 +27,17 @@ import java.util.Optional;
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final DepartmentRepository departmentRepository;
+    private final PositionRepository positionRepository;
 
     @ModelAttribute
     public void addEmployeesToModel(Model model){
         List<Employee> employees = employeeRepository.findAll();
         List<Department> departments = departmentRepository.findAll();
+        List<Position> positions = positionRepository.findAll();
         model.addAttribute("employees", employees);
         model.addAttribute("employee", new Employee());
         model.addAttribute("departments",departments);
+        model.addAttribute("positions",positions);
 
     }
 

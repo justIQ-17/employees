@@ -41,12 +41,7 @@
               th:if="${#fields.hasErrors('dob')}"
               th:errors="*{dob}">dob Error</span>
         <br>
-        <label for="jobTitle">Job Title</label>
-        <input type="text" id="jobTitle" th:field="*{jobTitle}"/>
-        <span class="validationError"
-              th:if="${#fields.hasErrors('jobTitle')}"
-              th:errors="*{jobTitle}">jobTitle Error</span>
-        <br>
+
         <label for="phoneNumber">Phone Number</label>
         <input type="text" id="phoneNumber" th:field="*{phoneNumber}"/>
         <span class="validationError"
@@ -55,13 +50,19 @@
         <br>
         <label for="department">Department</label>
         <select form="addForm" id="department" th:field="*{department}">
+            <option value="value" selected hidden="hidden">Choose Department</option>
             <option th:each="department : ${departments}"
                     th:text="${department.name}"
                     th:value="${department.id}">department</option>
         </select>
-<!--        <span class="validationError"-->
-<!--              th:if="${#fields.hasErrors('department')}"-->
-<!--              th:errors="*{department}">department Error</span>-->
+        <br>
+        <label for="position">Position</label>
+        <select form="addForm" id="position" th:field="*{position}">
+            <option value="value" selected hidden="hidden">Choose Position</option>
+            <option th:each="position : ${positions}"
+                    th:text="${position.name}"
+                    th:value="${position.id}">position</option>
+        </select>
         <br>
         <input id="submit" type="submit" value="Submit"/>
     </div>

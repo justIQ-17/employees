@@ -30,18 +30,19 @@ span{
 #table{
     width: 100%;
     text-align: left;
+    margin-top: 10px;
 
 }
 #tableDiv{
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    border: 2px  inset;
+    border: 2px  inset; 
     padding: 1%;
 }
 th{
     font-size: 30px;
-    font-family: Calibri;
+    font-family: Calibri, serif;
     font-weight: bold;
 }
 td{
