@@ -13,8 +13,5 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class DepartmentController {
     private final DepartmentService departmentService;
 
-//    @ModelAttribute
-//    public void addDepartmentsToModel(Model model){
-//        departmentService.addDepartmentsToModel(model);
-//    }
+
 }

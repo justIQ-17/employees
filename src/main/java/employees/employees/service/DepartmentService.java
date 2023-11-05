@@ -14,9 +14,5 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DepartmentService {
     private final DepartmentRepository departmentRepository;
-//    @ModelAttribute
-//    public void addDepartmentsToModel(Model model) {
-//        List<Department> departments = departmentRepository.findAll();
-//        model.addAttribute("departments",departments);
-//    }
+
 }

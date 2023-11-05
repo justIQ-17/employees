@@ -42,7 +42,7 @@ public class EmployeeController {
         return "employeeList";
     }
 
-    @GetMapping(path = "/{employeeId}")
+    @GetMapping(path = "/details/{employeeId}")
     public String findEmployeeById(@PathVariable("employeeId") Long employeeId,
                                    Model model) {
         employeeService.findEmployeeById(employeeId,model);
@@ -110,6 +110,31 @@ public class EmployeeController {
         employeeService.showUpdate(employeeId,model);
 
         return "update";
+    }
+
+    @GetMapping(path = "/{departmentName}")
+    public String showDepartmentEmployees(@PathVariable @ModelAttribute String departmentName,
+                                          Model model){
+        employeeService.showDepartmentEmployees(departmentName,model);
+
+        return "departmentEmployeesList";
+    }
+
+    @GetMapping(path = "/all/{positionName}")
+    public String showPositionEmployees(@PathVariable @ModelAttribute String positionName,
+                                          Model model){
+        employeeService.showPositionEmployees(positionName,model);
+
+        return "positionEmployeesList";
+    }
+
+    @GetMapping(path = "/{departmentName}/{positionName}")
+    public String showPositionEmployees(@PathVariable @ModelAttribute String departmentName,
+                                        @PathVariable @ModelAttribute String positionName,
+                                        Model model){
+        employeeService.showDepartmentEmployeesAndPositionEmployees(departmentName,positionName,model);
+
+        return "departmentAndPositionEmployeesList";
     }
 
 

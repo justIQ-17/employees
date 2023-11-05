@@ -34,6 +34,7 @@ public class EmployeeService {
         List<Employee> employees = employeeRepository.findAll();
         List<Department> departments = departmentRepository.findAll();
         List<Position> positions = positionRepository.findAll();
+//        List<Employee> departmentEmployees = employeeRepository.findAllByDepartmentName();
         model.addAttribute("employees", employees);
         model.addAttribute("employee", new Employee());
         model.addAttribute("departments",departments);
@@ -74,8 +75,28 @@ public class EmployeeService {
                             Model model){
         Optional<Employee> employee = employeeRepository.findById(employeeId);
 
-        model.addAttribute("employee", employee.get());
+        model.addAttribute("employee", employee);
     }
+
+    public void showDepartmentEmployees(@ModelAttribute String departmentName,
+                                        Model model){
+        List<Employee> departmentEmployees = employeeRepository.findAllByDepartmentName(departmentName);
+        model.addAttribute("departmentEmployees",departmentEmployees);
+    }
+
+    public void showPositionEmployees(@ModelAttribute String positionName,
+                                        Model model){
+        List<Employee> positionEmployees = employeeRepository.findAllByPositionName(positionName);
+        model.addAttribute("positionEmployees",positionEmployees);
+    }
+
+    public void showDepartmentEmployeesAndPositionEmployees(@ModelAttribute String departmentName,
+                                        @ModelAttribute String positionName,
+                                        Model model){
+        List<Employee> departmentAndPositionEmployees = employeeRepository.findAllByDepartmentNameAndPositionName(departmentName,positionName);
+        model.addAttribute("departmentAndPositionEmployees",departmentAndPositionEmployees);
+    }
+
 
 
 
