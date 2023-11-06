@@ -10,7 +10,7 @@
 <body>
 <div id="navbar">
     <span><a id="employeeList" th:href="@{/employees}">Employee List</a></span>
-    <span><a id="addEmployee" th:href="@{employees/addEmployee}">Add Employee</a></span>
+    <span><a id="addEmployee" th:href="@{/employees/addEmployee}">Add Employee</a></span>
 </div>
 <h1 id="header">My first independent website</h1>
 <div id="tableDiv">
@@ -21,11 +21,11 @@
                 th:text= "${department.name}"
                 th:value="@{'/employees/' + ${department.name}}">department</option>
     </select>
-    <select>
-        <option>All Positions</option>
+    <select th:onchange="window.location.href = this.value">
+        <option th:value="@{/employees}">All Positions</option>
         <option th:each="position : ${positions}"
                 th:text="${position.name}"
-                th:value="${position.id}">position</option>
+                th:value="@{'/employees/all/' + ${position.name}}">position</option>
     </select>
     <table id="table">
         <tr>
