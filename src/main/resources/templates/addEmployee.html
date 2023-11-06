@@ -11,7 +11,6 @@
 <body>
 <div id="navbar">
     <span><a id="employeeList" th:href="@{/employees}">Employee List</a></span>
-    <span><a id="addEmployee" th:href="@{/employees/addEmployee}">Add Employee</a></span>
 </div>
 <form method="POST" th:action="@{/employees/addEmployee}" th:object="${employee}" id="addForm">
 
